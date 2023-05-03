@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Josefin_Sans, Source_Serif_Pro } from "next/font/google";
-import Header from "@/components/Header";
+import Header from "@/components/header/Header";
 import Footer from "@/components/Footer";
 import SideBar from "@/components/SideBar";
 
@@ -31,8 +31,8 @@ export default function RootLayout({
     >
       <body className="bg-uBgColor">
         <Header />
-        <main>
-          <section>{children}</section>
+        <main className="max-w-[1240px] m-auto flex">
+          <section className="w-[70%]">{children}</section>
           <SideBar />
         </main>
         <Footer />

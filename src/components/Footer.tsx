@@ -23,6 +23,7 @@ const Footer = () => {
             {[1, 2, 3].map((item) => (
               <li key={item} className="flex">
                 <Image
+                  className="flex-shrink-0 h-[60px]"
                   src={img}
                   alt="Far far away, behind the word mountains"
                   width={60}
