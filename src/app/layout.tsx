@@ -3,6 +3,8 @@ import { Josefin_Sans, Source_Serif_Pro } from "next/font/google";
 import Header from "@/components/header/Header";
 import Footer from "@/components/Footer";
 import SideBar from "@/components/SideBar";
+import Slides from "@/components/slide/Slides";
+import SlideMain from "@/components/slide/SlideMain";
 
 const sourceSerifPro = Source_Serif_Pro({
   weight: ["200", "300", "400", "600", "700", "900"],
@@ -31,9 +33,13 @@ export default function RootLayout({
     >
       <body className="bg-uBgColor">
         <Header />
-        <main className="max-w-[1240px] m-auto flex">
-          <section className="w-[70%]">{children}</section>
-          <SideBar />
+        <main className="max-w-[1240px] m-auto">
+          {/* @ts-expect-error Server Component */}
+          <SlideMain />
+          <section className="flex">
+            <section className="w-[70%]">{children}</section>
+            <SideBar />
+          </section>
         </main>
         <Footer />
       </body>
