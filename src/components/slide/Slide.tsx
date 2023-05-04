@@ -2,13 +2,15 @@ import { IPost } from "@/util/posts";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+export const textShadow = "[text-shadow:_3px_3px_5px_rgba(0,0,0,0.5)]";
+
 const Slide = ({ post }: { post: IPost }) => {
   return (
     <motion.div
-      // transition={{ bounce: 0 }}
-      initial={{ x: -70 }}
-      animate={{ x: 0 }}
-      exit={{ x: 70 }}
+      transition={{ duration: 0.3 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      // exit={{ opacity: 0 }}
       className="w-full h-[460px] relative flex justify-center items-center"
     >
       <Image
@@ -18,23 +20,29 @@ const Slide = ({ post }: { post: IPost }) => {
         fill
         priority
       />
-      <div className="max-w-[700px] h-full m-auto flex flex-col justify-center items-center">
-        <ul className="flex">
+      <div
+        className={`max-w-[700px] h-full m-auto flex flex-col justify-center items-center text-white ${textShadow}`}
+      >
+        <ul className="flex space-x-[10px] text-lg ${textShadow}">
           {post.categories.map((category) => (
             <li key={category}>
-              <button># {category}</button>
+              <a className="px-2 py-[6px] " href="">
+                # {category}
+              </a>
             </li>
           ))}
         </ul>
 
-        <h2 className="text-center text-[50px] text-white [text-shadow:_3px_3px_5px_rgba(0,0,0,0.5)]">
+        <h2 className="mt-[30px] mb-5 text-center text-[50px] font-bold">
           {post.title}
         </h2>
 
-        <p>{post.date}</p>
+        <p className="font-serif">{post.date}</p>
 
-        <div className="flex">
-          <span>K</span>
+        <div className="mt-[30px] flex items-center">
+          <span className="w-[35px] h-[35px] mr-[10px] flex justify-center items-center bg-uRed rounded-full">
+            K
+          </span>
           <span>Kim Hyein</span>
         </div>
       </div>
