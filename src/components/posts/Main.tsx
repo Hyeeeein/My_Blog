@@ -10,7 +10,11 @@ const Main = ({ allPosts }: { allPosts: IPost[] }) => {
 
   const totalPage = Math.ceil(allPosts.length / 3);
 
-  const updatePosts = allPosts.slice((page - 1) * 3, page * 3);
+  // 왜 props 에 내렸을 때 순서가 바뀌는지..?
+  const posts = [...allPosts].sort((a, b) => a.id - b.id);
+
+  const updatePosts = posts.slice((page - 1) * 3, page * 3);
+  console.log(updatePosts);
 
   return (
     <section className="pr-[50px]">

@@ -10,8 +10,7 @@ const Slide = ({ post }: { post: IPost }) => {
       transition={{ duration: 0.3 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      // exit={{ opacity: 0 }}
-      className="w-full h-[460px] relative flex justify-center items-center"
+      className="w-full h-[460px] relative flex justify-center items-center after:w-[99%] after:h-[98%] after:border-white after:border-2 after:absolute after:top-2/4 after:left-2/4 after:-translate-x-2/4 after:-translate-y-2/4 before:w-full before:h-full  before:bg-[rgba(0,0,0,0.05)]"
     >
       <Image
         className="object-cover w-full h-full -z-10"
@@ -21,9 +20,9 @@ const Slide = ({ post }: { post: IPost }) => {
         priority
       />
       <div
-        className={`max-w-[700px] h-full m-auto flex flex-col justify-center items-center text-white ${textShadow}`}
+        className={`max-w-[700px] h-full m-auto flex flex-col justify-center items-center absolute z-10 text-white ${textShadow}`}
       >
-        <ul className="flex space-x-[10px] text-lg ${textShadow}">
+        <ul className="flex space-x-[10px] text-lg">
           {post.categories.map((category) => (
             <li key={category}>
               <a className="px-2 py-[6px] " href="">

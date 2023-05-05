@@ -61,7 +61,7 @@ const Nav = ({ top }: Props) => {
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               )}
             </a>
-            <ul className="w-max absolute top-[105%] left-[-15px] bg-white py-3 shadow-custom2 opacity-0 invisible duration-300 group-hover:opacity-100 group-hover:visible">
+            <ul className="w-max absolute top-[105%] left-[-15px] z-20 bg-white py-3 shadow-custom2 opacity-0 invisible duration-300 group-hover:opacity-100 group-hover:visible">
               {categories[`${oneDepth}`] &&
                 categories[`${oneDepth}`]?.map((twoDepth: string) => (
                   <li

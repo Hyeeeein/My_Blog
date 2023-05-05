@@ -62,8 +62,8 @@ const Post = ({ post }: { post: IPost }) => {
       </div>
 
       <a
-        href=""
-        className="px-[25px] py-[8px] absolute bottom-0 left-[50%] translate-x-[-50%] translate-y-2/4 bg-[#4b4870] text-[17px] text-white"
+        href={`/posts/${post.id}`}
+        className="px-[25px] py-[8px] absolute bottom-0 left-[50%] translate-x-[-50%] translate-y-2/4 bg-[#4b4870] text-[17px] text-white duration-500 hover:translate-x-[-55%] hover:translate-y-[45%] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:border-2 after:border-uRed "
       >
         Continue Reading
       </a>

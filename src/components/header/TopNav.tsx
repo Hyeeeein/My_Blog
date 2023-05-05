@@ -9,7 +9,7 @@ const TopNav = () => {
       initial={{ y: -70 }}
       animate={{ y: 0 }}
       exit={{ y: -70 }}
-      className="fixed top-0 left-0 z-10 w-full py-2 bg-white shadow-custom"
+      className="fixed top-0 left-0 z-20 w-full py-2 bg-white shadow-custom"
     >
       <div className="max-w-[1240px] m-auto flex justify-between items-center">
         <h1 className="pt-1 text-5xl	text-[#4B4870] font-bold first-letter:text-uRed align-top">
