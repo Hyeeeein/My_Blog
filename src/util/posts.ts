@@ -23,10 +23,11 @@ export type IPostData = {
   };
 };
 
-export type IPostDataRes = IPost & {
-  next: IPost | null;
-  prev: IPost | null;
-};
+export type IPostDataRes = IPost &
+  IPostData & {
+    next: IPost | null;
+    prev: IPost | null;
+  };
 
 export interface IPaginatePost {
   posts: IPost[];
@@ -76,11 +77,17 @@ export async function getPostContent(id: string): Promise<IPostDataRes> {
   const index = posts.indexOf(post);
   const next = index === 0 ? null : posts[index - 1];
   const prev = index === posts.length ? null : posts[index + 1];
-  const contents = await readFile(filePath, "utf-8").then<IPostData[]>(
-    JSON.parse
-  );
+  const contents = await readFile(filePath, "utf-8").then(JSON.parse);
 
   const res = { ...post, ...contents, next, prev };
 
   return res;
+}
+
+/* 태그별 포스트 */
+export async function getTagPosts(tag: string): Promise<IPost[]> {
+  const posts = await getAllPosts();
+  const filteredPosts = posts.filter((post) => post.categories.includes(tag));
+
+  return filteredPosts;
 }

@@ -1,5 +1,7 @@
 "use client";
 
+import { capitalize } from "@/util/capitalize";
+import Link from "next/link";
 import React from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
@@ -8,34 +10,34 @@ export type ObjectType = {
 };
 
 export const categories: ObjectType = {
-  Home: [
+  home: [
     "Home Posts Slider",
     "Home Posts Carousel",
     "Home Category Carousel",
     "Home Minimal",
     "Home Classic with Sidebar",
   ],
-  "Header Styles": [
+  "header Styles": [
     "Minimalist Style",
     "Classic Style",
     "Notice on Top",
     "Advertising Area",
   ],
-  "Post Features": [
+  "post Features": [
     "Post Formats",
     "Fullwidth with Sidebar",
     "Fullwidth no Sidebar",
     "Classic with Sidebar",
   ],
-  "#Tag": ["# Lifestyle", "# Music", "# Travel", "# Technology"],
-  Author: null,
-  Features: [
+  tag: ["lifestyle", "music", "travel", "technology"],
+  author: null,
+  features: [
     "Style Guide",
     "Gutenberg Blocks",
     "Buttons",
     "Accordions and Tabs",
   ],
-  Contact: null,
+  contact: null,
 };
 
 export interface Props {
@@ -43,6 +45,8 @@ export interface Props {
 }
 
 const Nav = ({ top }: Props) => {
+  // console.log(categories["contact"] ? categories["contact"][0] : null);
+
   return (
     <nav className={`${top ? "" : "my-10"}`}>
       <ul
@@ -52,23 +56,38 @@ const Nav = ({ top }: Props) => {
       >
         {Object.keys(categories).map((oneDepth: string) => (
           <li key={oneDepth} className="group relative">
-            <a
-              href=""
+            <Link
+              href={
+                oneDepth === "home"
+                  ? "/"
+                  : categories[oneDepth]
+                  ? `/${oneDepth}/${categories[oneDepth][0]}` // 왜 에러?
+                  : `/${oneDepth}`
+              }
               className="flex items-center px-3 py-3 text-[15px] duration-300 font-semibold hover:text-uRed"
             >
-              {oneDepth}
+              {oneDepth === "tag"
+                ? `#${capitalize(oneDepth)}`
+                : capitalize(oneDepth)}
               {categories[`${oneDepth}`] && (
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               )}
-            </a>
+            </Link>
             <ul className="w-max absolute top-[105%] left-[-15px] z-20 bg-white py-3 shadow-custom2 opacity-0 invisible duration-300 group-hover:opacity-100 group-hover:visible">
-              {categories[`${oneDepth}`] &&
-                categories[`${oneDepth}`]?.map((twoDepth: string) => (
+              {categories[oneDepth] &&
+                categories[oneDepth]?.map((twoDepth: string) => (
                   <li
                     key={twoDepth}
-                    className="px-4 py-2.5 text-[14px] hover:text-uRed cursor-pointer"
+                    className="text-[14px] hover:text-uRed cursor-pointer"
                   >
-                    {twoDepth}
+                    <Link
+                      className="inline-block px-4 py-2.5"
+                      href={`/${oneDepth}/${twoDepth}`}
+                    >
+                      {oneDepth === "tag"
+                        ? `# ${capitalize(twoDepth)}`
+                        : twoDepth}
+                    </Link>
                   </li>
                 ))}
             </ul>

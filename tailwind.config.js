@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx}",
@@ -6,6 +7,16 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      // tablet: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      // laptop: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      lg: "1140px",
+      // => @media (min-width: 1280px) { ... }
+    },
     extend: {
       fontFamily: {
         sans: ["var(--font-josefin)"],

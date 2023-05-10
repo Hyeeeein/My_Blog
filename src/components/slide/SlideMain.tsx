@@ -5,9 +5,9 @@ import { getSlidePosts } from "@/util/posts";
 const SlideMain = async () => {
   const posts = await getSlidePosts();
   return (
-    <div>
+    <section>
       <Slides posts={posts} />
-    </div>
+    </section>
   );
 };
 

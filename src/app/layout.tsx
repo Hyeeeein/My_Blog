@@ -34,10 +34,11 @@ export default function RootLayout({
       <body className="bg-uBgColor">
         <Header />
         <main className="max-w-[1240px] m-auto">
+          <div id="portal"></div>
           {/* @ts-expect-error Server Component */}
           <SlideMain />
-          <section className="flex">
-            <section className="w-[70%]">{children}</section>
+          <section className="w-full flex">
+            <section className="w-fit">{children}</section>
             <SideBar />
           </section>
         </main>

@@ -10,7 +10,7 @@ const Slide = ({ post }: { post: IPost }) => {
       transition={{ duration: 0.3 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="w-full h-[460px] relative flex justify-center items-center after:w-[99%] after:h-[98%] after:border-white after:border-2 after:absolute after:top-2/4 after:left-2/4 after:-translate-x-2/4 after:-translate-y-2/4 before:w-full before:h-full  before:bg-[rgba(0,0,0,0.05)]"
+      className="w-full h-[460px] relative flex justify-center items-center after:w-[99.3%] after:h-[98%] after:border-white after:border-2 after:absolute before:w-full before:h-full  before:bg-[rgba(0,0,0,0.05)]"
     >
       <Image
         className="object-cover w-full h-full -z-10"
