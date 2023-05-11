@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import SideBar from "@/components/SideBar";
 import Slides from "@/components/slide/Slides";
 import SlideMain from "@/components/slide/SlideMain";
+import Portal from "@/components/Portal";
 
 const sourceSerifPro = Source_Serif_Pro({
   weight: ["200", "300", "400", "600", "700", "900"],
@@ -35,10 +36,9 @@ export default function RootLayout({
         <Header />
         <main className="max-w-[1240px] m-auto">
           <div id="portal"></div>
-          {/* @ts-expect-error Server Component */}
-          <SlideMain />
+          
           <section className="w-full flex">
-            <section className="w-fit">{children}</section>
+            <section className=" grow">{children}</section>
             <SideBar />
           </section>
         </main>

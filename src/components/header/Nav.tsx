@@ -6,7 +6,7 @@ import React from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 export type ObjectType = {
-  [key: string]: string[] | null;
+  [key: string]: string[] | [];
 };
 
 export const categories: ObjectType = {
@@ -30,14 +30,14 @@ export const categories: ObjectType = {
     "Classic with Sidebar",
   ],
   tag: ["lifestyle", "music", "travel", "technology"],
-  author: null,
+  author: [],
   features: [
     "Style Guide",
     "Gutenberg Blocks",
     "Buttons",
     "Accordions and Tabs",
   ],
-  contact: null,
+  contact: [],
 };
 
 export interface Props {
@@ -60,16 +60,16 @@ const Nav = ({ top }: Props) => {
               href={
                 oneDepth === "home"
                   ? "/"
-                  : categories[oneDepth]
-                  ? `/${oneDepth}/${categories[oneDepth][0]}` // 왜 에러?
-                  : `/${oneDepth}`
+                  : categories[oneDepth]?.length === 0
+                  ? `/${oneDepth}` // 왜 에러?
+                  : `/${oneDepth}/${categories[oneDepth][0]}`
               }
               className="flex items-center px-3 py-3 text-[15px] duration-300 font-semibold hover:text-uRed"
             >
               {oneDepth === "tag"
                 ? `#${capitalize(oneDepth)}`
                 : capitalize(oneDepth)}
-              {categories[`${oneDepth}`] && (
+              {categories[`${oneDepth}`].length !== 0 && (
                 <MdOutlineKeyboardArrowDown className="ml-1" />
               )}
             </Link>

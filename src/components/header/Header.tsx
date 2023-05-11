@@ -7,6 +7,7 @@ import { FiSearch } from "react-icons/fi";
 import TopNav from "./TopNav";
 import Nav from "./Nav";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const Header = () => {
   const scroll = Scroll();
@@ -31,7 +32,7 @@ const Header = () => {
           </a>
         </div>
         <h1 className="basis-1/2 text-center text-6xl	text-[#4B4870] font-bold first-letter:text-uRed align-middle">
-          Maktub
+          <Link href="/">Maktub</Link>
         </h1>
         <div className="basis-1/4">
           <button className="ml-auto w-[44px] h-[44px] flex justify-center items-center rounded-full bg-uRed">

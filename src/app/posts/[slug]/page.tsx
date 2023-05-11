@@ -18,10 +18,10 @@ type Props = {
 };
 
 const PostPage = async ({ params: { slug } }: Props) => {
-  const data: IPostDataRes = await getPostContent(slug.toString());
+  const data: IPostDataRes = await getPostContent(slug);
 
   return (
-    <div className="pr-[50px] w-full">
+    <div className="pr-[50px]">
       <div className="w-full shadow-custom2 bg-white">
         <div className="relative w-full h-[434px] flex justify-center items-center after:absolute after:z-[5] after:w-[99%] after:h-[98%] after:border-2 after:border-white">
           <Image

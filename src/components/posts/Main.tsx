@@ -14,8 +14,6 @@ const Main = ({ allPosts }: { allPosts: IPost[] }) => {
   const posts = [...allPosts].sort((a, b) => a.id - b.id);
 
   const updatePosts = posts.slice((page - 1) * 3, page * 3);
-  console.log(updatePosts);
-
   return (
     <section className="pr-[50px]">
       <ul className="w-full flex flex-col">

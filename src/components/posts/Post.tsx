@@ -17,8 +17,8 @@ const Post = ({ post, small }: Props) => {
   function detail(small: boolean) {
     return (
       <p
-        className={`flex justify-center text-[#596172] font-serif space-x-5 text-[15px] ${
-          small ? "mt-8" : ""
+        className={`flex text-[#596172] font-serif space-x-5 text-[15px] ${
+          small ? "mt-8 justify-center" : ""
         }`}
       >
         <span>{post.date}</span>
